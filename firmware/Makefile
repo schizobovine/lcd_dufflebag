@@ -1,4 +1,4 @@
-BOARD_TAG					=	attiny84
+BOARD_TAG					=	ATtiny84
 ARDUINO_PORT			= /dev/ttyUSB0
 ARDUINO_LIBS			= LiquidCrystal Adafruit_NeoPixel
 ISP_PORT					= /dev/ttyUSB0
