@@ -5,7 +5,6 @@ ISP_PORT			= /dev/ttyUSB0
 ISP_PROG			= -c stk500v1
 ARDUINO_VAR_PATH	= $(HOME)/sketchbook/hardware/attiny/variants
 BOARDS_TXT			= $(HOME)/sketchbook/hardware/attiny/boards.txt
-#MCU_FLAG_NAME		= mmcuattiny84
 
 include /usr/share/arduino/Arduino.mk
 
