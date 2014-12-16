@@ -1,0 +1,8 @@
+<h1>LCD Dufflebag</h1>
+<p>Controls a "stanard" LCD over I2C.</p>
+
+<p>Designed to be attached to the back of the LCD, either monochrome or RGB, component side <i>facing</i> the back of the LCD. This leaves the back almost entirely bare, so less worry about shorts and whatnot when mounting. (I should make a version that uses SMT connectors to the LCD.)</p>
+
+<p>Attiny84-based, with AVR ISP broken out as a non-standard 6-pin connector. The layout was choosen to take advantage of the fact that SPI and I2C use the same pins on Attiny84's, meaning only one connector is needed for both programming and field use.</p>
+
+<p>For more schematics, non-working firmware, and potentially help, see the <a href="https://github.com/schizobovine/lcd_dufflebag">github repo</a>.</p>
