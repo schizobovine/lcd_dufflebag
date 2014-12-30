@@ -1,8 +1,9 @@
 BOARD_TAG			= attiny84
-aRDUINO_PORT		= /dev/ttyUSB0
-ARDUINO_LIBS		= LiquidCrystal Adafruit_NeoPixel TinyWireS EEPROM
+ARDUINO_PORT		= /dev/ttyUSB0
+#ARDUINO_LIBS		= Adafruit_NeoPixel EEPROM LiquidCrystal TinyWireS
+ARDUINO_LIBS		= Adafruit_NeoPixel
 ISP_PORT			= /dev/ttyUSB0
-ISP_PROG			= -c stk500v1
+ISP_PROG			= stk500v1
 ARDUINO_VAR_PATH	= $(HOME)/sketchbook/hardware/attiny/variants
 BOARDS_TXT			= $(HOME)/sketchbook/hardware/attiny/boards.txt
 

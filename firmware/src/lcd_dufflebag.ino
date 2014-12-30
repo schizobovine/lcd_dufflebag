@@ -3,34 +3,19 @@
  */
 
 #include <Arduino.h>
-#include <LiquidCrystal.h>
 #include <Adafruit_NeoPixel.h>
-#include <TinyWireS.h>
-#include <EEPROM.h>
+//#include <LiquidCrystal.h>
+//#include <TinyWireS.h>
+//#include <EEPROM.h>
 #include "lcd_dufflebag.h"
 
-// Pin mappings
+//byte my_i2c_addr = 0;
+//volatile byte my_reg_addr = 0;
 
-const int RS = 9;
-const int RW = 8;
-const int E = 7;
-const int DB4 = 0;
-const int DB5 = 1;
-const int DB6 = 2;
-const int DB7 = 3;
+//byte display_buff[32];
+//byte brightness = 0x7f;
 
-const int WS2811 = 5;
-
-const int ROWS = 2;
-const int COLS = 16;
-
-byte my_i2c_addr = 0;
-volatile byte my_reg_addr = 0;
-
-byte display_buff[32];
-byte brightness = 0x7f;
-
-LiquidCrystal lcd = LiquidCrystal(RS, RW, E, DB4, DB5, DB6, DB7);
+//LiquidCrystal lcd = LiquidCrystal(RS, RW, E, DB4, DB5, DB6, DB7);
 
 // Parameter 1 = number of pixels in strip
 // Parameter 2 = Arduino pin number (most are valid)
@@ -39,8 +24,9 @@ LiquidCrystal lcd = LiquidCrystal(RS, RW, E, DB4, DB5, DB6, DB7);
 //   NEO_KHZ400  400 KHz (classic 'v1' (not v2) FLORA pixels, WS2811 drivers)
 //   NEO_GRB     Pixels are wired for GRB bitstream (most NeoPixel products)
 //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
-Adafruit_NeoPixel rgb_bl = Adafruit_NeoPixel(1, WS2811, NEO_RGB + NEO_KHZ400);
+Adafruit_NeoPixel rgb_bl = Adafruit_NeoPixel(1, LED_CTRL, NEO_RGB + NEO_KHZ400);
 
+/*
 void recv_handler(uint8_t num_bytes) {
 
   // TODO Somehow inform user of buffer overflow?
@@ -113,31 +99,38 @@ void req_handler() {
   }
 
 }
+*/
 
 void setup() {
 
   // Get i2c address from EEPROM
-  my_i2c_addr = EEPROM.read(EEPROM_I2C_ADDR);
-  if (my_i2c_addr > 127) {
-    my_i2c_addr = DEFAULT_I2C_ADDR;
-    EEPROM.write(EEPROM_I2C_ADDR, my_i2c_addr);
-  }
+  //my_i2c_addr = EEPROM.read(EEPROM_I2C_ADDR);
+  //if (my_i2c_addr > 127) {
+  //  my_i2c_addr = DEFAULT_I2C_ADDR;
+  //  EEPROM.write(EEPROM_I2C_ADDR, my_i2c_addr);
+  //}
 
-  Wire.begin(my_i2c_addr);
-  Wire.onRequest(req_handler);
-  Wire.onReceive(recv_handler);
+  //Wire.begin(my_i2c_addr);
+  //Wire.onRequest(req_handler);
+  //Wire.onReceive(recv_handler);
+
+  //pinMode(RW, OUTPUT);
+  //digitalWrite(RW, 0);
   
+  delay(50);
   rgb_bl.begin();
   rgb_bl.setPixelColor(0, 255, 0, 0);
   rgb_bl.show();
 
-  lcd.begin(COLS, ROWS);
-  lcd.clear();
-  lcd.print("LCD Dufflebag");
+  //lcd.begin(COLS, ROWS);
+  //lcd.print("DICKBAGS");
 
 }
 
+byte frob = 0;
+
 void loop() {
+  /*
   lcd.setCursor(0, 1);
   lcd.print(millis());
   rgb_bl.setPixelColor(0, 255, 0, 0);
@@ -146,4 +139,27 @@ void loop() {
   delay(500);
   rgb_bl.setPixelColor(0, 0, 0, 255);
   delay(500);
+  */
+  /*(
+  switch (frob) {
+  case 0: rgb_bl.setPixelColor(0, 255, 0,   0);   break;
+  case 1: rgb_bl.setPixelColor(0, 255, 255, 0);   break;
+  case 2: rgb_bl.setPixelColor(0, 255, 0,   255); break;
+  case 3: rgb_bl.setPixelColor(0, 255, 255, 255); break;
+  case 4: rgb_bl.setPixelColor(0, 0,   255, 0);   break;
+  case 5: rgb_bl.setPixelColor(0, 0,   255, 255); break;
+  case 6: rgb_bl.setPixelColor(0, 0,   0,   255); break;
+  case 7: rgb_bl.setPixelColor(0, 0,   0,   0);   break;
+  default: break;
+  }
+  //frob = (frob + 1) % 8;
+  */
+  if (frob) {
+    rgb_bl.setPixelColor(0, 255, 0, 0);
+  } else {
+    rgb_bl.setPixelColor(0, 0, 255, 0);
+  }
+  frob = (!frob);
+  rgb_bl.show();
+  delay(1000);
 }
