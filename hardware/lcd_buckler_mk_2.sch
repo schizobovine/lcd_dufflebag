@@ -16383,7 +16383,7 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 </classes>
 <parts>
 <part name="SHIELD" library="A_butts" deviceset="ARDUINO_SHIELD" device="INSIDER"/>
-<part name="LCD" library="A_butts" deviceset="LCD-16X2" device="HOLESONLY" value="LCD-16x2"/>
+<part name="LCD_TOP" library="A_butts" deviceset="LCD-16X2" device="HOLESONLY" value="LCD-16x2"/>
 <part name="SUPPLY1" library="A_butts" deviceset="5V" device=""/>
 <part name="SUPPLY2" library="A_butts" deviceset="5V" device=""/>
 <part name="SUPPLY3" library="A_butts" deviceset="5V" device=""/>
@@ -16418,8 +16418,15 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 <part name="C4" library="A_butts" deviceset="CAPACITOR-CERAMIC" device="025-024X044" value="0.1uF"/>
 <part name="SUPPLY12" library="A_butts" deviceset="5V" device=""/>
 <part name="GND10" library="A_butts" deviceset="GND" device=""/>
-<part name="JP1" library="A_butts" deviceset="M02" device="PTH"/>
-<part name="CONTRAST1" library="A_butts" deviceset="POTENTIOMETER" device="THUMBWHEEL-16MM" value="10k"/>
+<part name="PULLUP_I2C?" library="A_butts" deviceset="M02" device="PTH"/>
+<part name="CONTRAST_L" library="A_butts" deviceset="POTENTIOMETER" device="THUMBWHEEL-16MM" value="10k"/>
+<part name="LCD_BOTTOM" library="A_butts" deviceset="LCD-16X2" device="HOLESONLY" value="LCD-16x2"/>
+<part name="SUPPLY13" library="A_butts" deviceset="5V" device=""/>
+<part name="SUPPLY14" library="A_butts" deviceset="5V" device=""/>
+<part name="GND11" library="A_butts" deviceset="GND" device=""/>
+<part name="SUPPLY15" library="A_butts" deviceset="5V" device=""/>
+<part name="GND12" library="A_butts" deviceset="GND" device=""/>
+<part name="CONTRAST_R" library="A_butts" deviceset="POTENTIOMETER" device="THUMBWHEEL-16MM" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -16429,14 +16436,14 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 </plain>
 <instances>
 <instance part="SHIELD" gate="G$1" x="50.8" y="83.82"/>
-<instance part="LCD" gate="G$1" x="119.38" y="83.82"/>
+<instance part="LCD_TOP" gate="G$1" x="30.48" y="25.4"/>
 <instance part="SUPPLY1" gate="G$1" x="33.02" y="81.28"/>
-<instance part="SUPPLY2" gate="G$1" x="142.24" y="93.98" rot="MR0"/>
-<instance part="SUPPLY3" gate="G$1" x="96.52" y="106.68"/>
-<instance part="SUPPLY4" gate="G$1" x="96.52" y="71.12"/>
-<instance part="GND1" gate="1" x="142.24" y="76.2" rot="MR0"/>
+<instance part="SUPPLY2" gate="G$1" x="154.94" y="63.5" rot="MR0"/>
+<instance part="SUPPLY3" gate="G$1" x="7.62" y="48.26"/>
+<instance part="SUPPLY4" gate="G$1" x="7.62" y="12.7"/>
+<instance part="GND1" gate="1" x="154.94" y="45.72" rot="MR0"/>
 <instance part="GND2" gate="1" x="33.02" y="60.96"/>
-<instance part="GND3" gate="1" x="96.52" y="96.52"/>
+<instance part="GND3" gate="1" x="7.62" y="38.1"/>
 <instance part="IC1" gate="G$1" x="60.96" y="139.7"/>
 <instance part="SUPPLY5" gate="G$1" x="33.02" y="157.48"/>
 <instance part="GND4" gate="1" x="33.02" y="119.38"/>
@@ -16464,23 +16471,30 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 <instance part="C4" gate="G$1" x="185.42" y="86.36"/>
 <instance part="SUPPLY12" gate="G$1" x="195.58" y="93.98"/>
 <instance part="GND10" gate="1" x="195.58" y="76.2"/>
-<instance part="JP1" gate="G$1" x="185.42" y="121.92" rot="R180"/>
-<instance part="CONTRAST1" gate="G$1" x="142.24" y="86.36" rot="MR90"/>
+<instance part="PULLUP_I2C?" gate="G$1" x="185.42" y="121.92" rot="R180"/>
+<instance part="CONTRAST_L" gate="G$1" x="154.94" y="55.88" rot="MR90"/>
+<instance part="LCD_BOTTOM" gate="G$1" x="66.04" y="25.4"/>
+<instance part="SUPPLY13" gate="G$1" x="43.18" y="48.26"/>
+<instance part="SUPPLY14" gate="G$1" x="43.18" y="12.7"/>
+<instance part="GND11" gate="1" x="43.18" y="38.1"/>
+<instance part="SUPPLY15" gate="G$1" x="177.8" y="63.5" rot="MR0"/>
+<instance part="GND12" gate="1" x="177.8" y="45.72" rot="MR0"/>
+<instance part="CONTRAST_R" gate="G$1" x="177.8" y="55.88" rot="MR90"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="5V" class="0">
 <segment>
-<pinref part="LCD" gate="G$1" pin="VDD"/>
-<wire x1="109.22" y1="104.14" x2="96.52" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="LCD_TOP" gate="G$1" pin="VDD"/>
+<wire x1="20.32" y1="45.72" x2="7.62" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="SUPPLY3" gate="G$1" pin="5V"/>
-<wire x1="96.52" y1="104.14" x2="96.52" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="45.72" x2="7.62" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="LCD" gate="G$1" pin="A"/>
-<wire x1="96.52" y1="71.12" x2="96.52" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="68.58" x2="109.22" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="LCD_TOP" gate="G$1" pin="A"/>
+<wire x1="7.62" y1="12.7" x2="7.62" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="10.16" x2="20.32" y2="10.16" width="0.1524" layer="91"/>
 <pinref part="SUPPLY4" gate="G$1" pin="5V"/>
 </segment>
 <segment>
@@ -16517,7 +16531,7 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 <wire x1="172.72" y1="121.92" x2="170.18" y2="121.92" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="121.92" x2="172.72" y2="119.38" width="0.1524" layer="91"/>
 <junction x="172.72" y="121.92"/>
-<pinref part="JP1" gate="G$1" pin="1"/>
+<pinref part="PULLUP_I2C?" gate="G$1" pin="1"/>
 <wire x1="172.72" y1="119.38" x2="175.26" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -16528,8 +16542,8 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 </segment>
 <segment>
 <pinref part="SUPPLY2" gate="G$1" pin="5V"/>
-<wire x1="142.24" y1="91.44" x2="142.24" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="CONTRAST1" gate="G$1" pin="E"/>
+<wire x1="154.94" y1="60.96" x2="154.94" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="CONTRAST_L" gate="G$1" pin="E"/>
 </segment>
 <segment>
 <pinref part="SUPPLY11" gate="G$1" pin="5V"/>
@@ -16541,13 +16555,30 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 <pinref part="SUPPLY12" gate="G$1" pin="5V"/>
 <wire x1="195.58" y1="93.98" x2="195.58" y2="91.44" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="LCD_BOTTOM" gate="G$1" pin="VDD"/>
+<wire x1="55.88" y1="45.72" x2="43.18" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="SUPPLY13" gate="G$1" pin="5V"/>
+<wire x1="43.18" y1="45.72" x2="43.18" y2="48.26" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="LCD_BOTTOM" gate="G$1" pin="A"/>
+<wire x1="43.18" y1="12.7" x2="43.18" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="10.16" x2="55.88" y2="10.16" width="0.1524" layer="91"/>
+<pinref part="SUPPLY14" gate="G$1" pin="5V"/>
+</segment>
+<segment>
+<pinref part="SUPPLY15" gate="G$1" pin="5V"/>
+<wire x1="177.8" y1="60.96" x2="177.8" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="CONTRAST_R" gate="G$1" pin="E"/>
+</segment>
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="LCD" gate="G$1" pin="VSS"/>
+<pinref part="LCD_TOP" gate="G$1" pin="VSS"/>
 <pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="96.52" y1="99.06" x2="96.52" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="101.6" x2="109.22" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="40.64" x2="7.62" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="43.18" x2="20.32" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
@@ -16592,8 +16623,8 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 </segment>
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
-<wire x1="142.24" y1="81.28" x2="142.24" y2="78.74" width="0.1524" layer="91"/>
-<pinref part="CONTRAST1" gate="G$1" pin="A"/>
+<wire x1="154.94" y1="50.8" x2="154.94" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="CONTRAST_L" gate="G$1" pin="A"/>
 </segment>
 <segment>
 <pinref part="GND9" gate="1" pin="GND"/>
@@ -16605,113 +16636,174 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 <pinref part="GND10" gate="1" pin="GND"/>
 <wire x1="195.58" y1="78.74" x2="195.58" y2="81.28" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="LCD_BOTTOM" gate="G$1" pin="VSS"/>
+<pinref part="GND11" gate="1" pin="GND"/>
+<wire x1="43.18" y1="40.64" x2="43.18" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="43.18" x2="55.88" y2="43.18" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND12" gate="1" pin="GND"/>
+<wire x1="177.8" y1="50.8" x2="177.8" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="CONTRAST_R" gate="G$1" pin="A"/>
+</segment>
 </net>
 <net name="RS" class="0">
 <segment>
-<pinref part="LCD" gate="G$1" pin="RS"/>
-<wire x1="106.68" y1="96.52" x2="109.22" y2="96.52" width="0.1524" layer="91"/>
-<label x="106.68" y="96.52" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="LCD_TOP" gate="G$1" pin="RS"/>
+<wire x1="17.78" y1="38.1" x2="20.32" y2="38.1" width="0.1524" layer="91"/>
+<label x="17.78" y="38.1" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="(PCINT10/INT0/OC0A/CKOUT)PB2"/>
 <wire x1="88.9" y1="152.4" x2="86.36" y2="152.4" width="0.1524" layer="91"/>
 <label x="88.9" y="152.4" size="1.27" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="LCD_BOTTOM" gate="G$1" pin="RS"/>
+<wire x1="53.34" y1="38.1" x2="55.88" y2="38.1" width="0.1524" layer="91"/>
+<label x="53.34" y="38.1" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="DB5" class="0">
 <segment>
-<pinref part="LCD" gate="G$1" pin="DB5"/>
-<wire x1="106.68" y1="76.2" x2="109.22" y2="76.2" width="0.1524" layer="91"/>
-<label x="106.68" y="76.2" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="LCD_TOP" gate="G$1" pin="DB5"/>
+<wire x1="17.78" y1="17.78" x2="20.32" y2="17.78" width="0.1524" layer="91"/>
+<label x="17.78" y="17.78" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="(PCINT1/AIN0/ADC1)PA1"/>
 <wire x1="88.9" y1="127" x2="86.36" y2="127" width="0.1524" layer="91"/>
 <label x="88.9" y="127" size="1.27" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="LCD_BOTTOM" gate="G$1" pin="DB5"/>
+<wire x1="53.34" y1="17.78" x2="55.88" y2="17.78" width="0.1524" layer="91"/>
+<label x="53.34" y="17.78" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="DB4" class="0">
 <segment>
-<pinref part="LCD" gate="G$1" pin="DB4"/>
-<wire x1="106.68" y1="78.74" x2="109.22" y2="78.74" width="0.1524" layer="91"/>
-<label x="106.68" y="78.74" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="LCD_TOP" gate="G$1" pin="DB4"/>
+<wire x1="17.78" y1="20.32" x2="20.32" y2="20.32" width="0.1524" layer="91"/>
+<label x="17.78" y="20.32" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="(PCINT0/AREF/ADC0)PA0"/>
 <wire x1="88.9" y1="124.46" x2="86.36" y2="124.46" width="0.1524" layer="91"/>
 <label x="88.9" y="124.46" size="1.27" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="LCD_BOTTOM" gate="G$1" pin="DB4"/>
+<wire x1="53.34" y1="20.32" x2="55.88" y2="20.32" width="0.1524" layer="91"/>
+<label x="53.34" y="20.32" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="E" class="0">
 <segment>
-<pinref part="LCD" gate="G$1" pin="E"/>
-<wire x1="106.68" y1="91.44" x2="109.22" y2="91.44" width="0.1524" layer="91"/>
-<label x="106.68" y="91.44" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="LCD_TOP" gate="G$1" pin="E"/>
+<wire x1="17.78" y1="33.02" x2="20.32" y2="33.02" width="0.1524" layer="91"/>
+<label x="17.78" y="33.02" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="(PCINT8/XTAL1/CLKI)PB0"/>
 <wire x1="88.9" y1="147.32" x2="86.36" y2="147.32" width="0.1524" layer="91"/>
 <label x="88.9" y="147.32" size="1.27" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="LCD_BOTTOM" gate="G$1" pin="E"/>
+<wire x1="53.34" y1="33.02" x2="55.88" y2="33.02" width="0.1524" layer="91"/>
+<label x="53.34" y="33.02" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="RW" class="0">
 <segment>
-<pinref part="LCD" gate="G$1" pin="R/W"/>
-<wire x1="106.68" y1="93.98" x2="109.22" y2="93.98" width="0.1524" layer="91"/>
-<label x="106.68" y="93.98" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="LCD_TOP" gate="G$1" pin="R/W"/>
+<wire x1="17.78" y1="35.56" x2="20.32" y2="35.56" width="0.1524" layer="91"/>
+<label x="17.78" y="35.56" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="(PCINT9/XTAL2)PB1"/>
 <wire x1="88.9" y1="149.86" x2="86.36" y2="149.86" width="0.1524" layer="91"/>
 <label x="88.9" y="149.86" size="1.27" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="LCD_BOTTOM" gate="G$1" pin="R/W"/>
+<wire x1="53.34" y1="35.56" x2="55.88" y2="35.56" width="0.1524" layer="91"/>
+<label x="53.34" y="35.56" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="DB6" class="0">
 <segment>
-<pinref part="LCD" gate="G$1" pin="DB6"/>
-<wire x1="106.68" y1="73.66" x2="109.22" y2="73.66" width="0.1524" layer="91"/>
-<label x="106.68" y="73.66" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="LCD_TOP" gate="G$1" pin="DB6"/>
+<wire x1="17.78" y1="15.24" x2="20.32" y2="15.24" width="0.1524" layer="91"/>
+<label x="17.78" y="15.24" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="(PCINT2/AIN1/ADC2)PA2"/>
 <wire x1="88.9" y1="129.54" x2="86.36" y2="129.54" width="0.1524" layer="91"/>
 <label x="88.9" y="129.54" size="1.27" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="LCD_BOTTOM" gate="G$1" pin="DB6"/>
+<wire x1="53.34" y1="15.24" x2="55.88" y2="15.24" width="0.1524" layer="91"/>
+<label x="53.34" y="15.24" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="CON" class="0">
 <segment>
-<pinref part="LCD" gate="G$1" pin="VO"/>
-<wire x1="106.68" y1="99.06" x2="109.22" y2="99.06" width="0.1524" layer="91"/>
-<label x="106.68" y="99.06" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="LCD_TOP" gate="G$1" pin="VO"/>
+<wire x1="17.78" y1="40.64" x2="20.32" y2="40.64" width="0.1524" layer="91"/>
+<label x="17.78" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<wire x1="137.16" y1="86.36" x2="134.62" y2="86.36" width="0.1524" layer="91"/>
-<label x="134.62" y="86.36" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="CONTRAST1" gate="G$1" pin="S"/>
+<wire x1="149.86" y1="55.88" x2="147.32" y2="55.88" width="0.1524" layer="91"/>
+<label x="147.32" y="55.88" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="CONTRAST_L" gate="G$1" pin="S"/>
+</segment>
+<segment>
+<pinref part="LCD_BOTTOM" gate="G$1" pin="VO"/>
+<wire x1="53.34" y1="40.64" x2="55.88" y2="40.64" width="0.1524" layer="91"/>
+<label x="53.34" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<wire x1="172.72" y1="55.88" x2="170.18" y2="55.88" width="0.1524" layer="91"/>
+<label x="170.18" y="55.88" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="CONTRAST_R" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="DB7" class="0">
 <segment>
-<pinref part="LCD" gate="G$1" pin="DB7"/>
-<wire x1="106.68" y1="71.12" x2="109.22" y2="71.12" width="0.1524" layer="91"/>
-<label x="106.68" y="71.12" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="LCD_TOP" gate="G$1" pin="DB7"/>
+<wire x1="17.78" y1="12.7" x2="20.32" y2="12.7" width="0.1524" layer="91"/>
+<label x="17.78" y="12.7" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="(PCINT3/T0/ADC3)PA3"/>
 <wire x1="88.9" y1="132.08" x2="86.36" y2="132.08" width="0.1524" layer="91"/>
 <label x="88.9" y="132.08" size="1.27" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="LCD_BOTTOM" gate="G$1" pin="DB7"/>
+<wire x1="53.34" y1="12.7" x2="55.88" y2="12.7" width="0.1524" layer="91"/>
+<label x="53.34" y="12.7" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="BACKLIGHT" class="0">
 <segment>
-<pinref part="LCD" gate="G$1" pin="K"/>
-<wire x1="106.68" y1="66.04" x2="109.22" y2="66.04" width="0.1524" layer="91"/>
-<label x="106.68" y="66.04" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="LCD_TOP" gate="G$1" pin="K"/>
+<wire x1="17.78" y1="7.62" x2="20.32" y2="7.62" width="0.1524" layer="91"/>
+<label x="17.78" y="7.62" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="(PCINT7/ICP/OC0B/ADC7)PA7"/>
 <wire x1="88.9" y1="142.24" x2="86.36" y2="142.24" width="0.1524" layer="91"/>
 <label x="88.9" y="142.24" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="LCD_BOTTOM" gate="G$1" pin="K"/>
+<wire x1="53.34" y1="7.62" x2="55.88" y2="7.62" width="0.1524" layer="91"/>
+<label x="53.34" y="7.62" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MOSISDA" class="0">
@@ -16796,7 +16888,7 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 <wire x1="172.72" y1="106.68" x2="170.18" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="114.3" x2="172.72" y2="116.84" width="0.1524" layer="91"/>
 <junction x="172.72" y="114.3"/>
-<pinref part="JP1" gate="G$1" pin="2"/>
+<pinref part="PULLUP_I2C?" gate="G$1" pin="2"/>
 <wire x1="172.72" y1="116.84" x2="175.26" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -16804,10 +16896,14 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 </sheet>
 </sheets>
 <errors>
-<approved hash="104,1,109.22,68.58,LCD,A,5V,,,"/>
-<approved hash="104,1,109.22,66.04,LCD,K,BACKLIGHT,,,"/>
-<approved hash="104,1,109.22,104.14,LCD,VDD,5V,,,"/>
-<approved hash="104,1,109.22,101.6,LCD,VSS,GND,,,"/>
+<approved hash="104,1,20.32,10.16,LCD_TOP,A,5V,,,"/>
+<approved hash="104,1,20.32,7.62,LCD_TOP,K,BACKLIGHT,,,"/>
+<approved hash="104,1,20.32,45.72,LCD_TOP,VDD,5V,,,"/>
+<approved hash="104,1,20.32,43.18,LCD_TOP,VSS,GND,,,"/>
+<approved hash="104,1,55.88,10.16,LCD_BOTTOM,A,5V,,,"/>
+<approved hash="104,1,55.88,7.62,LCD_BOTTOM,K,BACKLIGHT,,,"/>
+<approved hash="104,1,55.88,45.72,LCD_BOTTOM,VDD,5V,,,"/>
+<approved hash="104,1,55.88,43.18,LCD_BOTTOM,VSS,GND,,,"/>
 </errors>
 </schematic>
 </drawing>
