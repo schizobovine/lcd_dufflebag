@@ -3,28 +3,18 @@
  */
 
 #include <Arduino.h>
-#include <Adafruit_NeoPixel.h>
-//#include <LiquidCrystal.h>
-//#include <TinyWireS.h>
-//#include <EEPROM.h>
+#include <LiquidCrystal.h>
+#include <TinyWireS.h>
+#include <EEPROM.h>
 #include "lcd_dufflebag.h"
 
-//byte my_i2c_addr = 0;
-//volatile byte my_reg_addr = 0;
+byte my_i2c_addr = 0;
+byte my_reg_addr = 0;
+byte brightness = 0x7f;
 
 //byte display_buff[32];
-//byte brightness = 0x7f;
 
-//LiquidCrystal lcd = LiquidCrystal(RS, RW, E, DB4, DB5, DB6, DB7);
-
-// Parameter 1 = number of pixels in strip
-// Parameter 2 = Arduino pin number (most are valid)
-// Parameter 3 = pixel type flags, add together as needed:
-//   NEO_KHZ800  800 KHz bitstream (most NeoPixel products w/WS2812 LEDs)
-//   NEO_KHZ400  400 KHz (classic 'v1' (not v2) FLORA pixels, WS2811 drivers)
-//   NEO_GRB     Pixels are wired for GRB bitstream (most NeoPixel products)
-//   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
-Adafruit_NeoPixel rgb_bl = Adafruit_NeoPixel(1, LED_CTRL, NEO_RGB + NEO_KHZ400);
+LiquidCrystal lcd = LiquidCrystal(RS, RW, E, DB4, DB5, DB6, DB7);
 
 /*
 void recv_handler(uint8_t num_bytes) {
@@ -101,6 +91,11 @@ void req_handler() {
 }
 */
 
+void setBacklight() {
+  pinMode(BACKLIGHT, OUTPUT);
+  analogWrite(BACKLIGHT, brightness);
+}
+
 void setup() {
 
   // Get i2c address from EEPROM
@@ -114,52 +109,16 @@ void setup() {
   //Wire.onRequest(req_handler);
   //Wire.onReceive(recv_handler);
 
-  //pinMode(RW, OUTPUT);
-  //digitalWrite(RW, 0);
+  pinMode(BACKLIGHT, OUTPUT);
   
-  delay(50);
-  rgb_bl.begin();
-  rgb_bl.setPixelColor(0, 255, 0, 0);
-  rgb_bl.show();
-
-  //lcd.begin(COLS, ROWS);
-  //lcd.print("DICKBAGS");
+  lcd.begin(COLS, ROWS);
+  lcd.print("DICKBAGS");
 
 }
 
-byte frob = 0;
-
 void loop() {
-  /*
   lcd.setCursor(0, 1);
   lcd.print(millis());
-  rgb_bl.setPixelColor(0, 255, 0, 0);
-  delay(500);
-  rgb_bl.setPixelColor(0, 0, 255, 0);
-  delay(500);
-  rgb_bl.setPixelColor(0, 0, 0, 255);
-  delay(500);
-  */
-  /*(
-  switch (frob) {
-  case 0: rgb_bl.setPixelColor(0, 255, 0,   0);   break;
-  case 1: rgb_bl.setPixelColor(0, 255, 255, 0);   break;
-  case 2: rgb_bl.setPixelColor(0, 255, 0,   255); break;
-  case 3: rgb_bl.setPixelColor(0, 255, 255, 255); break;
-  case 4: rgb_bl.setPixelColor(0, 0,   255, 0);   break;
-  case 5: rgb_bl.setPixelColor(0, 0,   255, 255); break;
-  case 6: rgb_bl.setPixelColor(0, 0,   0,   255); break;
-  case 7: rgb_bl.setPixelColor(0, 0,   0,   0);   break;
-  default: break;
-  }
-  //frob = (frob + 1) % 8;
-  */
-  if (frob) {
-    rgb_bl.setPixelColor(0, 255, 0, 0);
-  } else {
-    rgb_bl.setPixelColor(0, 0, 255, 0);
-  }
-  frob = (!frob);
-  rgb_bl.show();
+  setBacklight();
   delay(1000);
 }

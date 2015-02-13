@@ -21,17 +21,19 @@
 //#define REG_MAX    (0x12)
 
 // Pin mappings
-//#define RS     (PB1)
-//#define RW     (PB2)
-//#define E      (PA7)
-//#define DB4    (PA0)
-//#define DB5    (PA1)
-//#define DB6    (PA2)
-//#define DB7    (PA3)
-#define LED_CTRL (PA5)
+#define RS  (PB2)
+#define RW  (PB1)
+#define E   (PB0)
+
+#define DB4 (PA0)
+#define DB5 (PA1)
+#define DB6 (PA2)
+#define DB7 (PA3)
+
+#define BACKLIGHT (PA5)
 
 // LCD parameters
-//#define COLS (16)
-//#define ROWS (2)
+#define COLS (8)
+#define ROWS (2)
 
 #endif

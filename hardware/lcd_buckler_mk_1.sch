@@ -14595,7 +14595,7 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 <label x="88.9" y="142.24" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="MOSISDA" class="0">
+<net name="MOSI/SDA" class="0">
 <segment>
 <pinref part="SHIELD" gate="G$1" pin="A4"/>
 <wire x1="38.1" y1="91.44" x2="35.56" y2="91.44" width="0.1524" layer="91"/>

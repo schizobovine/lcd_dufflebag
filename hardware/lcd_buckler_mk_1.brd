@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="5" display="yes" altdistance="1" altunitdist="mil" altunit="mil"/>
+<grid distance="0.5" unitdist="mm" unit="mm" style="lines" multiple="2" display="yes" altdistance="1" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -1019,7 +1019,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="24.39" y1="27.5" x2="16.6" y2="19.71" width="0.25" layer="16"/>
 <wire x1="16.6" y1="19.71" x2="16.6" y2="3.49" width="0.25" layer="16"/>
 </signal>
-<signal name="MOSISDA">
+<signal name="MOSI/SDA">
 <contactref element="SHIELD" pad="A4"/>
 <contactref element="R2" pad="P$1"/>
 <contactref element="IC1" pad="7"/>
